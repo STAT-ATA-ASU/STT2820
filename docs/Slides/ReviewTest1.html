@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>STT 2820 Test 1 Review</title>
+    <meta charset="utf-8">
+    <meta name="author" content="Alan Arnholt" />
+    <link rel="stylesheet" href="appstate.css" type="text/css" />
+    <link rel="stylesheet" href="appstate-fonts.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: top, right, inverse, title-slide
+
+# STT 2820 Test 1 Review
+### Alan Arnholt
+### 2019/02/08 (updated: 2019-02-11)
+
+---
+
+
+
+
+
+# Identify the W's for the description of data
+
+- Who
+--
+
+- What
+--
+
+- When
+--
+
+- Where
+--
+
+- Why
+--
+
+- How
+
+---
+
+# Classify the variable as categorical or quantitative
+
+* Example of categorical variable
+
+--
+
+* Example of quantitative variable
+
+---
+
+# Contingency table
+
+
+```
+           sample(pclass)
+sample(sex)  1st  2nd  3rd  Sum
+     female  114   96  256  466
+     male    209  181  453  843
+     Sum     323  277  709 1309
+```
+
+Find the conditional distribution of `sex` for `3rd` class passengers.
+
+--
+
+
+```
+   female      male 
+0.3610719 0.6389281 
+```
+
+--
+
+Find the conditional distribution of `pclass` for `male` passengers.
+
+--
+
+
+```
+      1st       2nd       3rd 
+0.2479241 0.2147094 0.5373665 
+```
+
+--
+
+What percent of females are `2nd` class?
+
+--
+
+
+```
+[1] 0.2060086
+```
+
+---
+
+Based on the density plot below, do you expect the mean or the median to larger?
+
+
+&lt;img src="ReviewTest1_files/figure-html/unnamed-chunk-5-1.png" style="display: block; margin: auto;" /&gt;
+
+--
+
+
+```
+    Mean   Median 
+86.28363 84.00000 
+```
+
+
+---
+
+# Summary Statistics
+
+
+Last year 10 faculty retired from the College of Arts and Sciences.  Their retirement
+ages (in years) are listed below.
+
+
+```
+ [1] 65 64 67 65 64 64 63 67 65 64
+```
+
+* Find the mean retirement age.
+
+--
+
+The mean retirement age was 64.8 years.
+
+--
+
+* Find the standard deviation of retirement age.
+
+--
+
+The standard deviation of retirement age was 1.32 years.
+
+--
+
+* Find the five-number summary for the retirement ages.
+
+--
+
+The five-number summary is 63, 64, 64.5, 65, 67.
+
+---
+
+If your friend's mother was 64 year old when she retired, how many standard deviations away from the mean was your friend's mother when she retired?
+
+
+```
+ [1] 65 64 67 65 64 64 63 67 65 64
+```
+
+--
+
+
+
+Your friend's mother was  0.61 standard deviations below the average retirement age.
+
+---
+
+# The Standford Binet IQ exam has a mean of 100 and a standard deviation of 16. This is generally written as IQ `\(\sim N(100, 16)\)`.
+
+
+
+
+* What percentage of the population can we expect to have an IQ less than 112?
+
+--
+
+
+
+`$$z = \frac{x - \mu}{\sigma}$$`
+
+We can expect 77.34% of the population to have an IQ less than 112.
+
+---
+
+# Find the indicated quantities
+
+
+
+
+* `\(z &lt; 1.1487947\)`
+--
+
+```
+[1] 0.8746797
+```
+--
+
+* `\(z &gt; -0.1481539\)`
+--
+
+```
+[1] 0.5588893
+```
+--
+* `\(-1.0232678 &lt; z &lt; 1.1487947\)`
+--
+
+```
+[1] 0.7215891
+```
+
+---
+
+
+
+
+Based on the normal model for male NCAA Div I swim speed for the 100 yards freestyle `\(N(45, 2)\)`, what is the cutoff value for the fastest 11% of the swims?
+
+--
+
+
+```
+[1] 42.55
+```
+
+---
+
+Find the missing parameter from a normal distributions with the following characteristics:
+
+
+
+
+
+* `\(\mu = 30.05\)`, 37% below 22.89; `\(\sigma=\)`?
+
+--
+
+
+```
+[1] 21.5758
+```
+--
+
+* `\(\sigma = 4.58\)`, 20% below 22.89; `\(\mu=\)`?
+
+--
+
+
+```
+[1] 26.74463
+```
+
+---
+
+# Find the correlation.
+
+The paired data below consist of the test scores of 6 randomly selected students and the number of hours they slept the night before their test.
+
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:right;"&gt; sleep &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; grade &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 2.7 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 63.6 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 3.7 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 69.4 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 5.5 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 69.5 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 7.4 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 76.4 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 8.6 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 79.1 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 8.9 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 83.4 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+--
+
+
+```
+[1] 0.9640158
+```
+
+---
+
+
+
+
+
+* The relationship between grade on a test and the number of hours slept is analyzed.  A regression to predict the average grade from the number of hours slept has an `\(R^2 = 92.93\)`%.  The regression equation is `\(\widehat{grade} = 56.8136708 + 2.7314667\cdot sleep\)`.  Predict the average grade for a student who sleeps 5 hours the night before the exam.
+
+--
+
+
+```
+     1 
+70.471 
+```
+--
+
+* A student slept 5 hours the night before the exam and scored a 72 on the test.  What is the residual for this student?
+
+--
+
+
+```
+       1 
+1.528996 
+```
+    </textarea>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function() {
+  var d = document, s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})();</script>
+
+<script>
+(function() {
+  var i, text, code, codes = document.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+})();
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

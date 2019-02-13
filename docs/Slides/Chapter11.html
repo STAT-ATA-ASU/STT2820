@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>STT 2820 Chapter 11</title>
+    <meta charset="utf-8">
+    <meta name="author" content="Alan Arnholt" />
+    <link rel="stylesheet" href="appstate.css" type="text/css" />
+    <link rel="stylesheet" href="appstate-fonts.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: top, right, inverse, title-slide
+
+# STT 2820 Chapter 11
+### Alan Arnholt
+### updated: 2019-02-13
+
+---
+
+class: inverse, center, middle
+
+
+
+
+# Idea 1:  Examine a Part of the Whole
+
+---
+
+When we take a survey, we want to know something about an entire group. This group is called the **population**. What we want to know is the **parameter**. Typically, we take a smaller group from the big group and use it to make conclusions about the big group. The small group is the **sample**. The actual list of individuals from which a sample is chosen is the **sampling frame**.  A sample that systematically misrepresents the population is **biased**.
+---
+
+# Example 11.1
+
+A computer network manager wants to test the reliability of some
+new and expensive fiber-optic Ethernet cables that the computer department just
+received.  The computer department received 8 boxes containing 40 cables each.
+The manager does not have the time to test every cable in each box.  The
+manager  will choose one box at random and test 8 cables chosen randomly within
+that box.  
+
+--
+
+- What is the population?
+
+--
+320 cables
+
+- What is the population parameter of interest? 
+
+--
+reliability (percentage) of Ethernet cables that work
+
+- What is the sampling frame? 
+
+--
+randomly chosen box
+
+- What is the sample?
+
+--
+8 cables
+
+
+---
+class: inverse, center, middle
+
+# Idea 2:  Randomize
+
+To avoid **bias**, select the sample at random.
+---
+
+# Example 11.2
+
+* Sample heights outside a basketball locker room.
+
+--
+
+Biased TALL.
+
+--
+
+* Sample ages at a nursing home.
+
+--
+
+Biased OLD
+
+---
+class: inverse, center, middle
+
+# Idea 3: The Sample Size Matters!
+---
+
+The actual size of a sample determines how accurate your results can be.
+
+* We always estimate parameters of the population:  True, exist,
+unknown. 
+
+--
+
+* With statistics from the sample:  known, can be calculated.  
+
+--
+
+* If a statistic that is computed from a sample reflects the value of the
+corresponding parameter, the sample is **representative**.  Changes from one
+random sample to another are **sampling variability**.
+
+---
+# Kinds of good Samples
+
+1. census---a sample of the whole.  Problems? cost, time, underrepresentation
+--
+
+2. simple random sample --- each sample of the same size has an equal chance
+of being chosen
+--
+
+3. stratified --- set the proportions of the sample to those in the
+population BEFORE sampling
+--
+
+4. cluster --- a group that is all together---represents the population as a
+whole.
+--
+
+5. systematic --- every `\(k^{th}\)` unit is chosen
+--
+
+6. multistage --- any combination of the above
+
+---
+class: inverse, center, middle
+
+# To get a valid sample, several things must happen
+
+---
+
+To get a valid sample, several things must happen:
+
+1. Identify the population and select the best sampling frame you can.
+--
+
+2. Know what you want to know.
+--
+
+3. Ask specific questions.
+--
+
+4. Ask for numerical results.
+--
+
+5. Phrase carefully--even subtle differences can shade results.
+--
+
+6. Do what you can to reduce bias.
+--
+
+7. Run a pilot survey--test the survey on a small group
+--
+
+8. EDIT!!!  Spend time and resources reducing biases.  There is no way to
+recover from a biased sample or survey that asks biased questions.
+
+---
+class: inverse, center, middle
+
+# What can go wrong?
+
+---
+
+# In sampling?
+
+* Voluntary response samples---a group that is invited to respond, and only those who do are counted.  A voluntary reponse bias ALWAYS invalidates a survey.
+
+--
+
+Kinsey report, Ann Landers (kids)
+
+* Convenience sample --- pick an easy group.  A convenience sample always invalidates results.
+
+--
+
+The polls, reporters, political writers - they all believed Dewey was going to win by a landslide.  While President Truman was still on the road campaigning, Newsweek polled 50 key political journalists to determine which candidate they thought would win. Appearing in the October 11 issue, Newsweek stated the results: all 50 believed Dewey would win.
+
+Dewey defeats Truman Chicago Daily Tribune, November 3, 1948 --- You remember President Dewey right?
+
+---
+
+# In sampling?
+
+* Choosing a bad sampling frame
+
+* Udercoverage bias---Undercoverage bias occurs when some group is not sampled at all or is sampled less frequently than they occur in the population.
+
+* Non-reponse bias.  Non-reponse bias is when a particular group categorically does not respond.
+
+---
+class: inverse, center, middle
+
+# What can go wrong in design?
+
+---
+
+# What can go wrong in design?
+
+* Long surveys
+
+--
+
+* Biasing responses with lead-in statements yields response bias.
+    </textarea>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function() {
+  var d = document, s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})();</script>
+
+<script>
+(function() {
+  var i, text, code, codes = document.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+})();
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

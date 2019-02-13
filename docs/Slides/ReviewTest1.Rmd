@@ -1,0 +1,311 @@
+---
+title: "STT 2820 Test 1 Review"
+author: "Alan Arnholt"
+date: "2019/02/08 (updated: `r Sys.Date()`)"
+output:
+  xaringan::moon_reader:
+    seal: true
+    # lib_dir: libs
+    css: [appstate.css, appstate-fonts.css]
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      titleSlideClass: [top, right, inverse]
+      # autoplay: 40000
+      # countdown: 30000
+---
+
+```{r label = "setup", include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, comment = NA, warning = FALSE, message = FALSE)
+```
+
+
+# Identify the W's for the description of data
+
+- Who
+--
+
+- What
+--
+
+- When
+--
+
+- Where
+--
+
+- Why
+--
+
+- How
+
+---
+
+# Classify the variable as categorical or quantitative
+
+* Example of categorical variable
+
+--
+
+* Example of quantitative variable
+
+---
+
+# Contingency table
+
+```{r, echo = FALSE}
+library(PASWR2)
+T1 <- (xtabs(~sample(sex) + sample(pclass), data = TITANIC3))
+addmargins(T1)
+```
+
+Find the conditional distribution of `sex` for `3rd` class passengers.
+
+--
+
+```{r, echo = FALSE}
+A1 <- prop.table(T1, 2)
+A1[, 3]
+```
+
+--
+
+Find the conditional distribution of `pclass` for `male` passengers.
+
+--
+
+```{r, echo = FALSE}
+A2 <- prop.table(T1, 1)
+A2[2, ]
+```
+
+--
+
+What percent of females are `2nd` class?
+
+--
+
+```{r, echo = FALSE}
+prop.table(T1, 1)[1, 2]
+#
+# 106/(144 + 106 + 216)  only when T1 fixed.
+```
+
+---
+
+Based on the density plot below, do you expect the mean or the median to larger?
+
+
+```{r, echo = FALSE, fig.align = "center", fig.height = 4, fig.width = 4}
+library(ggplot2)
+ggplot(data = EPIDURALF, aes(x = kg)) +
+  geom_density(fill = "goldenrod") + 
+  theme_bw() +
+  labs(x = "weight of patient in kg.")
+```
+
+--
+
+```{r, echo = FALSE}
+Mean <- c(mean(EPIDURALF$kg))
+Median <- c(median(EPIDURALF$kg))
+ans <- c(Mean, Median)
+names(ans) <- c("Mean", "Median")
+ans
+```
+
+
+---
+
+# Summary Statistics
+
+
+Last year 10 faculty retired from the College of Arts and Sciences.  Their retirement
+ages (in years) are listed below.
+
+```{r, echo = FALSE}
+ages <- round(rnorm(10, 65, 2),0)
+ages
+```
+
+* Find the mean retirement age.
+
+--
+
+The mean retirement age was `r mean(ages)` years.
+
+--
+
+* Find the standard deviation of retirement age.
+
+--
+
+The standard deviation of retirement age was `r round(sd(ages),2)` years.
+
+--
+
+* Find the five-number summary for the retirement ages.
+
+--
+
+The five-number summary is `r fivenum(ages)`.
+
+---
+
+If your friend's mother was `r ages[2]` year old when she retired, how many standard deviations away from the mean was your friend's mother when she retired?
+
+```{r, echo = FALSE}
+ages
+```
+
+--
+
+```{r, echo = FALSE}
+z <- (ages[2] - mean(ages))/sd(ages)
+```
+
+Your friend's mother was  `r abs(round(z, 2))` standard deviations `r ifelse(sign(z) < 0, "below", "above")` the average retirement age.
+
+---
+
+# The Standford Binet IQ exam has a mean of 100 and a standard deviation of 16. This is generally written as IQ $\sim N(100, 16)$.
+
+```{r, echo = FALSE}
+x <- round(rnorm(1, 110, 5))
+```
+
+
+* What percentage of the population can we expect to have an IQ less than `r x`?
+
+--
+
+```{r, echo = FALSE}
+z <- (x - 100)/16
+ans <- pnorm(x, 100, 16)
+```
+
+$$z = \frac{x - \mu}{\sigma}$$
+
+We can expect `r round(ans*100, 2)`% of the population to have an IQ less than `r x`.
+
+---
+
+# Find the indicated quantities
+
+```{r, echo = FALSE}
+zs <- rnorm(5)
+```
+
+
+* $z < `r zs[1]`$
+--
+```{r, echo = FALSE}
+pnorm(zs[1])
+```
+--
+
+* $z > `r zs[2]`$
+--
+```{r, echo = FALSE}
+pnorm(zs[2], lower = FALSE)
+```
+--
+* $`r min(zs)` < z < `r max(zs)`$
+--
+```{r, echo = FALSE}
+pnorm(max(zs)) - pnorm(min(zs))
+```
+
+---
+
+```{r, echo = FALSE}
+perc <- sample(2:12, 1)
+```
+
+
+Based on the normal model for male NCAA Div I swim speed for the 100 yards freestyle $N(45, 2)$, what is the cutoff value for the fastest `r perc`% of the swims?
+
+--
+
+```{r, echo = FALSE}
+round(qnorm(perc/100, 45, 2),2)
+```
+
+---
+
+Find the missing parameter from a normal distributions with the following characteristics:
+
+```{r, echo = FALSE}
+val <- rnorm(4, 30, 5)
+```
+
+
+
+* $\mu = `r round(mean(val),2)`$, 37% below `r round(min(val),2)`; $\sigma=$?
+
+--
+
+```{r, echo = FALSE}
+z <- qnorm(.37)
+sigma <- (round(min(val),2) - round(mean(val),2))/z
+sigma
+```
+--
+
+* $\sigma = `r round(min(val)/5,2)`$, 20% below `r round(min(val),2)`; $\mu=$?
+
+--
+
+```{r, echo = FALSE}
+round(min(val),2) - qnorm(.20)*round(min(val)/5,2)
+```
+
+---
+
+# Find the correlation.
+
+The paired data below consist of the test scores of 6 randomly selected students and the number of hours they slept the night before their test.
+
+```{r, echo = FALSE}
+sleep <- sort(round(rnorm(6, 6, 2),1)) 
+grade <- sort(round(rnorm(6, 80, 8), 1))
+DF <- data.frame(sleep = sleep, grade = grade)
+knitr::kable(DF, format = "html")
+```
+
+--
+
+```{r, echo = FALSE}
+cor(sleep, grade)
+```
+
+---
+
+```{r, echo = FALSE}
+mod <- lm(grade ~ sleep)
+```
+```{r, echo = FALSE}
+nbs <- sample(2:5, 1)
+```
+
+
+* The relationship between grade on a test and the number of hours slept is analyzed.  A regression to predict the average grade from the number of hours slept has an $R^2 = `r round(cor(sleep, grade)^2*100,2)`$%.  The regression equation is $\widehat{grade} = `r coef(mod)[1]` + `r coef(mod)[2]`\cdot sleep$.  Predict the average grade for a student who sleeps `r nbs` hours the night before the exam.
+
+--
+
+```{r, echo = FALSE}
+pre <- predict(mod, newdata = data.frame(sleep = nbs))
+pre
+```
+--
+
+* A student slept `r nbs` hours the night before the exam and scored a 72 on the test.  What is the residual for this student?
+
+--
+
+```{r, echo = FALSE}
+resid <- 72 - pre
+resid
+```
+
