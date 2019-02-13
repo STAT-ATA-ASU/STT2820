@@ -1,0 +1,70 @@
+---
+title: "Chapter 14"
+author: "Alan Arnholt"
+date: "9/27/2018"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE, comment = NA, fig.align = "center")
+```
+
+## Example 14.1
+
+National Pet Owners Survey 39% of US households own at least one dog and 34%
+of US households own at least one cat.  Assume that 60% of US households own a
+dog or cat.
+
+a.  What is the probability that a randomly selected household owns neither a dog nor a cat?
+
+b.  What is the probability that a randomly selected household owns both a dog and a cat?
+
+c.  What is the probability that a randomly selected household owns a cat if that household owns a dog?
+
+## Tree
+
+A manufacturing firm orders computer chips from three companies.  10% from
+Company A, 20% from B and 70% from C.  Some are defective.  4% of A's are
+defective; 2% of Bs are; and 0.5% of C's are.  A worker discovers a randomly
+selected chip is defective.  What is the probability it came from Company B?
+
+## Conditional Probability
+
+We often find probabilities of the form "given B, what is the probability
+of A?"  The are called **conditional probabilities** and are written
+$P(A | B) = P(A \cap B)/P(B)$.  If A and B are independent, $P(A | B)
+= P(A)$ and the formula we used for independence follows.
+
+## Independence
+
+```{r, echo = FALSE}
+vec <- c(30, 145, 42, 203)
+mat <- matrix(vec, nrow = 2)
+dimnames(mat) <- list(Laptop = c("Yes", "No"), Searched = c("Yes", "No"))
+addmargins(mat)
+```
+
+
+Given this information, would you say being searched is independent of carrying
+a laptop?
+
+## Bayes's Rule
+
+Ovarian cancer affects only 1 of every 5000 women.  A new test detects this
+cancer 99.97% of the time when it is present.  Unfortunately, it also gives a
+false positive 5% of the time.  What is the probability that a woman who tests
+positive actually has ovarian cancer? (0.00398)
+
+In general $P(A | B) = \dfrac{P(A \cap B)}{P(B)}=\dfrac{P(B | A)\cdot
+P(A)}{P(B | A) P(A) + P(B | A^c)P(A^c)}$.  Sometimes $A^c$ is
+composed of multiple events, all of which must be considered.
+
+## Sampling Without Replacement
+
+Consider a deck of cards.
+
+1.  What is the probability we pull two aces? $P(A_1 \cap A_2) = 4/52 \cdot 3/51 = 12/2652 = `r 12/2652`.$
+
+2.  What is the probability of five hearts in a row? 
+
+$P(H_1 \cap H_2 \cap H_3 \cap H_4 \cap H_5) = \frac{13 \cdot 12 \cdot 11 \cdot 10 \cdot 9}{52 \cdot 51 \cdot 50 \cdot 49 \cdot 48} = `r (13*12*11*10*9)/(52*51*50*49*48)`.$
