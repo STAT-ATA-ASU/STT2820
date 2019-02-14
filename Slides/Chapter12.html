@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>STT 2820 Chapter 12</title>
+    <meta charset="utf-8">
+    <meta name="author" content="Alan Arnholt" />
+    <link rel="stylesheet" href="appstate.css" type="text/css" />
+    <link rel="stylesheet" href="appstate-fonts.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: top, right, inverse, title-slide
+
+# STT 2820 Chapter 12
+### Alan Arnholt
+### updated: 2019-02-14
+
+---
+
+class: inverse, center, middle
+
+
+
+
+# Experiments and Observational Studies
+
+---
+# Observational Studies-researchers don't assign choices, they observe them.
+
+--
+
+1. Retrospective---look back at past choices
+
+--
+
+2. Prospective---identify subjects and follow them through time.
+
+---
+
+# Experiments and vocabulary
+
+An **experiment** is the application of treatments to randomly assigned subjects and the comparison of outcomes.
+
+--
+
+In experiments, out explanatory variables are called **factors** and the outcomes are measured by **response variables**.  The different values a factor can have are called **levels**.  **levels `\(\times\)` levels = total treatments**.
+
+--
+
+**Subject** or **participants** are people on whom an experiment is performed.  **Experimental units** are non-people on whom an experiment is performed, say rats, petri dishes, test tubes, etc.
+
+
+
+---
+class: inverse, center, middle
+
+# The Four Principles of Experimental Design
+---
+# The Four Principles of Experimental Design
+
+1. Control - make conditions as similar as possible for all treatment groups (control variation)
+
+--
+
+2. Randomize - equalize effects of unknown or uncontrollable variation (reduce bias &amp; combat systematic error)
+
+--
+
+3. Replicate - apply treatment to multiple individuals, apply treatment at different times, locations, etc. (if something works on only one person, it is a story, not data)
+
+--
+
+4. Block - group similar individuals and randomize their group (removes identifiable variation)
+
+
+---
+class: inverse, center, middle
+
+# Good Experiments
+
+---
+# The best experiments are:
+
+--
+
+1. Randomized
+
+--
+
+2. Comparative
+
+--
+
+3. Double-blind
+
+--
+
+4. Placebo-controlled
+
+--
+
+**Double blind** means that neither the subject nor the person applying the treatment know which treatment is being received.  A **placebo** is a treatment that should not have an effect (like a sugar pill to cure cancer)
+
+---
+
+# Example 12.1  
+
+You have 60 female volunteers who are willing to try anything to get rid of a headache.  You want to test two pain medicines at 500 and 1000 mg doses.  You also want to know whether resting or activity is more helpful is ending pain.  Design a completely randomized, double-blind, placebo-controlled experiment.
+
+---
+
+# Solution
+
+* Factors: Medicine and Rest
+
+--
+
+* Medicine has three levels (placebo pill, 500mg, and 1000mg), Rest has two levels (rest, no rest)
+
+--
+
+* Treatments:  there are 3 `\(\times\)` 2 = 6 treatments.
+
+--
+
+* 10 women are randomly assigned to each treatment.
+
+--
+
+* All pills look the same, one person puts the pills into vials 1-30 and 31-60 with 10 of each kind
+
+--
+
+* Subjects are randomly assigned numbers.
+
+--
+
+* 1-30 rest, 31-60 no rest
+
+--
+
+* Compare headache relief after 2 hours.
+
+---
+class: inverse, center, middle
+
+# Interpretation Issues
+
+---
+
+* A **lurking** variable is typically found in an observational study.
+
+--
+
+* **Confounding** is a problem when the effects of different treatments can't be separated.  Confounding is typically a problem for experiments.
+
+--
+
+* **Statistically significant** means not random.  We have a statistically significant result when differences are too large to be explained by natural variation.
+    </textarea>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function() {
+  var d = document, s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})();</script>
+
+<script>
+(function() {
+  var i, text, code, codes = document.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+})();
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
