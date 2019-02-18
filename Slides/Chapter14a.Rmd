@@ -87,7 +87,7 @@ a laptop?
 
 --
 
-$P(\text{laptop} \cap \text{searched}) = \frac{30}{420} = \frac{1}{14}$...the question is does this equal $P(\text{laptop}) \times P(\text{searched}) = \frac{72}{420} \cdot \frac{175}{420} = \frac{1}{14} \Rightarrow$ the events being serached and carrying a laptop are independent.
+$P(\text{laptop} \cap \text{searched}) = \frac{30}{420} = \frac{1}{14}$...the question is does this equal $P(\text{laptop}) \times P(\text{searched}) = \frac{72}{420} \cdot \frac{175}{420} = \frac{1}{14} \Rightarrow$ the events being searched and carrying a laptop are independent.
 
 
 ---
