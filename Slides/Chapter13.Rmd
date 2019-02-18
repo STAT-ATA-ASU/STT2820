@@ -1,0 +1,256 @@
+---
+title: "STT 2820 Chapter 13"
+author: "Alan Arnholt"
+date: "updated: `r Sys.Date()`"
+output:
+  xaringan::moon_reader:
+    seal: true
+    # lib_dir: libs
+    css: [appstate.css, appstate-fonts.css]
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      titleSlideClass: [top, right, inverse]
+      # autoplay: 40000
+      # countdown: 30000
+---
+class: inverse, center, middle
+
+```{r label = "setup", include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, comment = NA, warning = FALSE, message = FALSE)
+```
+
+
+# From Randomness to Probability
+
+---
+# Vocabulary
+
+Each time we observe a random phenomenon is called a **trial**.  The value of
+the trial is the **outcome**.  If we combine outcomes, we have an **event**.
+The set of all outcomes possible is the **sample space**, $S$.
+
+The **probability** of an event is its long term relative frequency. 
+
+--
+
+$$P(A) =\frac{\text{Number of outcomes in } A}{\text{Number of possible outcomes}}$$
+
+---
+
+# Probability Axioms
+
+1. For any event $A$, $0 \leq P(A) \leq 1$.
+
+--
+
+2. $P(S) =1$ where $S$ is the sample space.
+
+--
+
+3. $P(A) + P(A^c) =1$ so $P(A^c)=1 - P(A)$.
+
+--
+
+4. $P(A \cup B) = P(A) + P(B) - P(A \cap B)$.  If $P(A \cap B) = 0$, the
+$P(A \cup B) = P(A) + P(B)$.
+
+--
+
+5. $P(A \cap B) = P(A) \times P(B)$ if and only if $A$ and $B$ are
+independent.
+
+--
+
+If $P(A\cap B) = 0$, events are **disjoint**.
+
+---
+class: inverse, center, middle
+
+# Dice
+---
+# You roll a fair die four times
+
+1. How many outcomes are in the sample space? $6^4 = 1296$
+
+```{r, echo = FALSE}
+S <- expand.grid(roll1 = 1:6, roll2 = 1:6, roll3 = 1:6, roll4 = 1:6)
+knitr::kable(head(S, n = 10), format = 'html')
+```
+
+---
+
+# When you roll a fair die four times, what is the probability that you roll:
+
+*  Four twos? - How many outcomes have exactly four twos? (1) - $P(\text{four twos}) = \frac{1}{1296}$ OR Define the events $A$, $B$, $C$, and $D$ to be obtaining a two on the first, second, third, and fourth roll of the die.  Since $A$, $B$, $C$, and $D$ are independent, 
+
+$$P(\text{four twos}) = P(A \cap B \cap C \cap D) = \\
+P(A) \times P(B) \times P(C) \times P(D) = \frac{1}{6} \times \frac{1}{6} \times \frac{1}{6} \times \frac{1}{6}= \frac{1}{1296}$$
+---
+# When you roll a fair die four times, what is the probability that you roll:
+
+* At least one five?
+
+--
+
+$$P(\text{roll at least one five}) = 1 - P(\text{roll no fives}) = 1 - \left(\frac{5}{6}\right)^4 = \frac{671}{1296} = `r 1 - (5/6)^4`$$
+
+---
+# When you roll a fair die four times, what is the probability that you roll:
+
+* The numbers you roll are not all sixes?
+
+--
+
+$$P(\text{numbers are not all sixes}) = 1 - P(\text{numbers are all sixes}) = \\ 1 - \left(\frac{1}{6}\right)^4 = \frac{1295}{1296} = `r 1 - (1/6)^4`$$
+
+---
+# When you roll a fair die four times, what is the probability that you roll:
+
+* Only the last number you roll is a six?
+
+This means that the first three numbers can be anything other than a ____
+
+--
+
+6
+
+--
+
+$$P(\text{only last number is a six}) = [P(\text{any number but six})]^3 \times P(\text{must be a six}) \\
+\left[\frac{5}{6}\right]^3 \times \frac{1}{6} = \frac{125}{1296} = `r (5/6)^3*1/6`$$
+
+---
+# When you roll a fair die four times, what is the probability that you roll:
+
+* Not more than 2 on any roll?
+
+--
+
+$$P(\text{not more than a two on any roll}) = P(\text{not more than a two})^4 = \\ \left(\frac{2}{6}\right)^4 = `r (1/3)^4`$$
+---
+---
+# When you roll a fair die four times, what is the probability that you roll:
+
+* Even or more than 4?
+
+--
+
+Let $A$ be the event of rolling an even number, and $B$ the event of rolling a number greater than 4.
+
+$$P(A \cup B) = P(A) + P(B) - P(A \cap B) = \frac{3}{6} + \frac{2}{6} - \frac{1}{6} = \frac{4}{6}$$
+--
+
+Since the probability of rolling an even number or more than 4 on a single roll is $\frac{4}{6}$, the probability of rolling an even number or more than 4  with four rolls of a fair die is $\left(\frac{4}{6}\right)^4 = \frac{256}{1296} = `r (4/6)^4`$.
+
+
+
+---
+class: inverse, center, middle
+
+# Poker
+
+---
+
+# How many five card hands exist?
+
+First, note that there are 52 cards in a standard deck of cards used to play poker.  Second, we are not sampling with replacement!
+
+--
+
+The number of ways the first card can be selected is 52, the second 51, the third 50, the fourth 49, and the fifth 48.  
+
+--
+
+Imagine holding the cards in your hand.  When playing cards, the order you hold the cards in your hand does not matter.  Consequently, there are 5! ways the cards in your hand can be arranged.  Therefore, there are
+
+--
+
+$\frac{52 \times 51 \times 50 \times 49 \times 48}{5 \times 4 \times 3 \times 2 \times 1} = 2,598,960$ different five card hands.  
+
+--
+
+In general, this is a combination of $n$ things taken $k$ at a time, written as
+
+$$C_{n,k} = \binom{n}{k} = \frac{n!}{(n-k)!k!}$$
+---
+# How many flushes exist?
+
+Note: A flush is all 5 cards of the same suit.
+
+--
+
+Since there are 13 cards in each suit and there are four suits, there are 
+$C_{13, 5} = \binom{13}{5} = \frac{13!}{(13-5)!5!} = \frac{13 \times 12 \times 11 \times 10 \times 9}{5 \times 4 \times 3 \times 2 \times 1} = 1287$ flushes in each suit, and a total of $4 \times 1287 = 5148$ possible flushes.
+
+---
+# What is the probability of a flush?
+
+$P(\text{flush})=\frac{\text{number of flushes}}{\text{number of five card hands}} = \frac{5148}{2598960} = `r 4*choose(13, 5)/choose(52,5)`$
+
+--
+
+* What is the probablity of a royal flush?  Note that a royal flush is A,K,Q,J,10 in a single suit.
+
+--
+
+$P(\text{royal flush}) = \frac{4\binom{5}{5}}{\binom{52}{5}} = \frac{4}{2598960} = `r 4/choose(52,5)`$
+
+--
+
+* What is the probability of 100 royal flushes in a row?
+
+--
+
+$P(\text{100 royal flushes in a row}) = \left(\frac{4}{2598960}\right)^{100}$
+
+---
+class: inverse, center, middle
+
+# Homework Problem 19
+
+---
+
+On Spetember, 11, 2002, a particular state lottery's daily number cane up 9-1-1.  Assume that no more than one digit is used to represent the first nine months.  Answer the following:
+
+*  What is the probability that the winning three numbers match the date on any given day?
+
+--
+
+Question?  How many possible outcomes or winning 3 numbers exist? 
+
+--
+
+0-9, 0-9, 0-9, so $10 \times 10 \times 10 = 1000$
+
+__
+
+Question?  How many ways can the 3 winning numbers match the date? 
+
+--
+
+Only 1!  So the answer is $\left(\frac{1}{10}\right)^3=\frac{1}{1000}$
+
+---
+* What is the probability that a whole year passes without this happening?  (where 3 winning numbers do not match date)  There are 65 days where the chance to match is zero---Oct 10-Oct 31 (22), Nov 10-Nov 30 (21), and Dec 10-Dec 31 (22)---So there are 300 days in a year (not a leap year) where a match might occur.
+
+--
+
+$$P(\text{no match all year}) = (\text{probability not a match})^{\text{number of days where match could happen}} =\\ \left(1 - \frac{1}{1000}\right)^{300} = (0.999)^{300} = `r .999^300`$$
+
+--
+
+* What is the probability that the date and winning lottery number match at least once during any year?
+
+--
+
+$$P(\text{at least one match}) = 1 - P(\text{no matches in a year}) = 1 - 0.740707 = `r 1 - 0.740707`$$
+
+---
+
+* The probability that at least one of the winning numbers from 36 states is 6-0-9 on June 9 is....
+
+--
+
+In general, probability at least 1 match in $K$ states is $1 -(\text{prob no matches})^{\text{number of states}}$. In particular, $1 - \left(\frac{999}{1000}\right)^{36} = `r 1 - (999/1000)^36`$ 
