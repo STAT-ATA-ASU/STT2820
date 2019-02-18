@@ -7,6 +7,7 @@ title: "Welcome"
 * [Test 1 Review](./Slides/ReviewTest1.html)
 * [Chapter 11 Slides](./Slides/Chapter11.html) 
 * [Chapter 12 Slides](./Slides/Chapter12.html)
+* [Chapter 13 Slides](./Slides/Chapter13.html)
 
 
 
