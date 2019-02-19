@@ -13,7 +13,7 @@ class: top, right, inverse, title-slide
 
 # STT 2820 Chapter 13
 ### Alan T. Arnholt
-### updated: 2019-02-18
+### updated: 2019-02-19
 
 ---
 
@@ -223,6 +223,12 @@ class: inverse, center, middle
 
 # How many five card hands exist?
 
+???
+
+Explain deck of cards: 4 suits {Hearts, Diamonds, Spades, Clubs}, 13 denominations {2, ..10, J, Q, K, A}
+
+--
+
 First, note that there are 52 cards in a standard deck of cards used to play poker.  Second, we are not sampling with replacement!
 
 --
@@ -242,6 +248,7 @@ Imagine holding the cards in your hand.  When playing cards, the order you hold 
 In general, this is a combination of `\(n\)` things taken `\(k\)` at a time, written as
 
 `$$C_{n,k} = \binom{n}{k} = \frac{n!}{(n-k)!k!}$$`
+
 ---
 # How many flushes exist?
 
@@ -271,7 +278,7 @@ Since there are 13 cards in each suit and there are four suits, there are
 
 --
 
-`\(P(\text{100 royal flushes in a row}) = \left(\frac{4}{2598960}\right)^{100}\)`
+`\(P(\text{100 royal flushes in a row}) = \left(\frac{4}{2598960}\right)^{100} \approx 5.3215677 \times 10^{-582}\)`
 
 ---
 class: inverse, center, middle

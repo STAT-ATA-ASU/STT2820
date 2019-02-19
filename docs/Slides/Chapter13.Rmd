@@ -155,6 +155,12 @@ class: inverse, center, middle
 
 # How many five card hands exist?
 
+???
+
+Explain deck of cards: 4 suits {Hearts, Diamonds, Spades, Clubs}, 13 denominations {2, ..10, J, Q, K, A}
+
+--
+
 First, note that there are 52 cards in a standard deck of cards used to play poker.  Second, we are not sampling with replacement!
 
 --
@@ -174,6 +180,7 @@ $\frac{52 \times 51 \times 50 \times 49 \times 48}{5 \times 4 \times 3 \times 2 
 In general, this is a combination of $n$ things taken $k$ at a time, written as
 
 $$C_{n,k} = \binom{n}{k} = \frac{n!}{(n-k)!k!}$$
+
 ---
 # How many flushes exist?
 
@@ -203,7 +210,7 @@ $P(\text{royal flush}) = \frac{4\binom{5}{5}}{\binom{52}{5}} = \frac{4}{2598960}
 
 --
 
-$P(\text{100 royal flushes in a row}) = \left(\frac{4}{2598960}\right)^{100}$
+$P(\text{100 royal flushes in a row}) = \left(\frac{4}{2598960}\right)^{100} \approx 5.3215677 \times 10^{-582}$
 
 ---
 class: inverse, center, middle
