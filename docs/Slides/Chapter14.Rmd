@@ -45,8 +45,7 @@ addmargins(mat)
 ```
 
 
-Given this information, would you say being searched is independent of carrying
-a laptop?
+Given this information, would you say being searched is independent of carrying a laptop?
 
 ## Bayes's Rule
 
