@@ -135,4 +135,4 @@ b. What is the probability of getting five hearts in a row?
 
 --
 
-$P(\text{five hearts in a row}) = 13/52 \times 12/51 \times 11/50 \times 10/50 \times 9/49 =\\ `r 13/52*12/51*11/50*10/50*9/49`$.
+$P(\text{five hearts in a row}) = 13/52 \times 12/51 \times 11/50 \times 10/49 \times 9/48 =\\ `r 13/52*12/51*11/50*10/49*9/48`$.
