@@ -1,0 +1,246 @@
+---
+title: "STT 2820 Chapter 15"
+author: "Alan T. Arnholt"
+date: "updated: `r Sys.Date()`"
+output:
+  xaringan::moon_reader:
+    seal: true
+    # lib_dir: libs
+    css: [appstate.css, appstate-fonts.css]
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      titleSlideClass: [top, right, inverse]
+      # autoplay: 40000
+      # countdown: 30000
+---
+class: inverse, center, middle
+
+```{r label = "setup", include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, comment = NA, warning = FALSE, message = FALSE)
+```
+
+# Quiz Grades
+
+---
+# Example 15.1---Quiz Grade
+
+We are going to have a 4 question quizzes throughout the semester.  If you have 90% knowledge of the material, what average score do you expect to earn?
+
+--
+
+```{r, echo = TRUE}
+x <- c(0, 25, 50, 75, 100)
+px <- dbinom(0:4, 4, .9)
+EX <- sum(x*px)
+EX
+```
+
+--
+
+```{r}
+VX <- sum((x - EX)^2*px)
+SX <- VX^.5
+c(EX, VX, SX)
+```
+
+
+---
+class: inverse, center, middle
+
+# Cards
+
+---
+Consider a game where you are paid $0 for a red card, $15 for a spade, $30 for a club and $50 for Ace of clubs.  What are the expected value, variance, and standard deviation for this game?  If you were going to play this game many times, how much should you be willing to pay to play?  If you were going to play only a few times, how much should you be willing to pay?
+
+--
+
+```{r}
+px <- c(0, 15, 30, 50)
+x <- c(26/52, 13/52, 12/52, 1/52)
+EX <- sum(x*px)
+VX <- sum((x - EX)^2*px)
+c(EX, VX, VX^.5)
+```
+
+
+---
+class: inverse, center, middle
+
+# Kids
+
+---
+# Example 15.3 **Kids**
+
+If a couple decides to have children until they either have a girl or 3 kids, how many boys should they expect to have if $P(\text{girl}) = 0.47$?  State the random variable and give its distribution.  What is the standard deviation of the number of boys they will have?  How does this change if the random variable becomes number of children?
+
+--
+
+Let X = number of boys; Let Y = number of children.
+
+--
+
+```{r, echo = TRUE}
+X <- c(0, 1, 2, 3)
+px <- c(.47, .53*.47, .53^2*.47, .53^3)
+EXb <- sum(X*px)
+SXb <- sqrt(sum((X - EXb)^2*px))
+Y <- c(1, 2, 3)
+py <- c(.47, .53*.47, .53^2*.47 + .53^3)
+EYk <- sum(Y*py)
+SYk <- sqrt(sum((Y - EYk)^2*py))
+c(EXb, SXb, EYk, SYk)
+```
+
+---
+class: inverse, center, middle
+
+# Shift Scale
+
+---
+
+# Shift Scale
+
+What happens to random variables' mean and variance if we shift their values?  If E(X) = 20 and $\sigma_X^2 = 100$, what are the mean and variance of
+
+1. $X + 7$
+2. $3X$
+
+--
+
+```{r, echo = TRUE}
+X <- c(0, 10, 20, 30)
+px <- c(0.1, 0.2, 0.3, 0.4)
+EX <- sum(X*px)
+VX <- sum((X - EX)^2*px)
+c(EX, VX)
+sum((X + 7)*px)
+sum(((X + 7) - 27)^2*px)
+```
+
+---
+
+# Shift Scale-continued
+
+```{r}
+X <- c(0, 10, 20, 30)
+px <- c(0.1, 0.2, 0.3, 0.4)
+EX <- sum(X*px)
+VX <- sum((X - EX)^2*px)
+c(EX, VX)
+sum((3*X)*px)
+sum(((3*X) - 60)^2*px)
+```
+
+
+---
+class: inverse, center, middle
+
+# Independent Random Variables
+
+---
+# For Independent Random Variables:
+
+--
+
+* $E(aX + bY) = aE(X) + bE(Y)$
+
+--
+
+* $E(aX - bY) = aE(X) - bE(Y)$
+
+--
+
+* $Var(aX \pm bY) = a^2Var(X) + b^2Var(Y)$
+
+
+---
+# Example 15.5
+
+If $X$ and $Y$ are independent and $E(X) = 5$, $Var(X) = 9$, $E(Y) = 8$, and $Var(Y) = 12$, what are:
+
+a. $E(4X)$
+
+--
+
+20
+
+b. $E(2X + 3Y)$
+
+--
+
+34
+
+c. $Var(5X)$
+
+--
+
+225
+
+d. $Var(4X - 7Y)$
+
+--
+
+```{r}
+4^2*9 + 7^2*12
+```
+
+
+
+---
+class: inverse, center, middle
+
+# Sequence of Indepedent Random Variables
+
+---
+* For  sequence of independent random variables ${X_1, X_2, \ldots, X_m}$ with mean $\mu$ and variance $\sigma^2$, $E(X_1+X_2+\cdots+X_m)=m\mu$ and $Var(X_1+X_2+ \cdots +X_m)=m\sigma^2$ and $SD(X_1+X_2+ \cdots +X_m)=\sigma\sqrt{m}$.
+
+--
+
+* Use **IndepRV** tab in test two workbook
+
+---
+# Example 15.6 
+
+If $E(X) = 25$ and $Var(X)=9$ and $X_1$ to $X_4$ are independent, what are
+
+a. $E(X_1 + X_2 + X_3) =$ 
+
+--
+
+$3 \times 25 = 75$
+
+--
+
+b. $Var(X_1 + X_2 + X_3 +X_4)$
+
+--
+
+$4 \times 9 = 36$
+
+--
+
+c. $SD(X_1 + X_2 +X_3 +X_4)$
+
+--
+
+$\sqrt{4}\cdot\sqrt{9} = 2\cdot3 = 6 = \sqrt{36}$
+
+--
+
+Note that $Var(X_1+X_2) \neq Var(2X) = 4Var(X)$
+
+---
+# Example 15.7
+
+Bob works at Wal Mart. The mean purchase of his customers is $200 with a standard deviation
+of $50. If Bob checks out 100 customers, what is the probability that he has rung up more than $21,000?
+
+--
+
+$$E(X_1 + \cdots + X_{100}) = 100 \times 200 = 20000$$
+
+$$SD(X_1 + \cdots + X_{100}) = 50 \times \sqrt{100} = 500$$
+
+$$P(T \geq 21000) = P\left(z \geq \frac{21000 - 20000}{500}= 2\right) = `r pnorm(2, lower = FALSE)`$$

@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>STT 2820 Chapter 15</title>
+    <meta charset="utf-8">
+    <meta name="author" content="Alan T. Arnholt" />
+    <link rel="stylesheet" href="appstate.css" type="text/css" />
+    <link rel="stylesheet" href="appstate-fonts.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: top, right, inverse, title-slide
+
+# STT 2820 Chapter 15
+### Alan T. Arnholt
+### updated: 2019-02-21
+
+---
+
+class: inverse, center, middle
+
+
+
+# Quiz Grades
+
+---
+# Example 15.1---Quiz Grade
+
+We are going to have a 4 question quizzes throughout the semester.  If you have 90% knowledge of the material, what average score do you expect to earn?
+
+--
+
+
+```r
+x &lt;- c(0, 25, 50, 75, 100)
+px &lt;- dbinom(0:4, 4, .9)
+EX &lt;- sum(x*px)
+EX
+```
+
+```
+[1] 90
+```
+
+--
+
+
+```r
+VX &lt;- sum((x - EX)^2*px)
+SX &lt;- VX^.5
+c(EX, VX, SX)
+```
+
+```
+[1]  90 225  15
+```
+
+
+---
+class: inverse, center, middle
+
+# Cards
+
+---
+Consider a game where you are paid $0 for a red card, $15 for a spade, $30 for a club and $50 for Ace of clubs.  What are the expected value, variance, and standard deviation for this game?  If you were going to play this game many times, how much should you be willing to pay to play?  If you were going to play only a few times, how much should you be willing to pay?
+
+--
+
+
+```r
+px &lt;- c(0, 15, 30, 50)
+x &lt;- c(26/52, 13/52, 12/52, 1/52)
+EX &lt;- sum(x*px)
+VX &lt;- sum((x - EX)^2*px)
+c(EX, VX, VX^.5)
+```
+
+```
+[1]    11.63462 12591.43121   112.21155
+```
+
+
+---
+class: inverse, center, middle
+
+# Kids
+
+---
+# Example 15.3 **Kids**
+
+If a couple decides to have children until they either have a girl or 3 kids, how many boys should they expect to have if `\(P(\text{girl}) = 0.47\)`?  State the random variable and give its distribution.  What is the standard deviation of the number of boys they will have?  How does this change if the random variable becomes number of children?
+
+--
+
+Let X = number of boys; Let Y = number of children.
+
+--
+
+
+```r
+X &lt;- c(0, 1, 2, 3)
+px &lt;- c(.47, .53*.47, .53^2*.47, .53^3)
+EXb &lt;- sum(X*px)
+SXb &lt;- sqrt(sum((X - EXb)^2*px))
+Y &lt;- c(1, 2, 3)
+py &lt;- c(.47, .53*.47, .53^2*.47 + .53^3)
+EYk &lt;- sum(Y*py)
+SYk &lt;- sqrt(sum((Y - EYk)^2*py))
+c(EXb, SXb, EYk, SYk)
+```
+
+```
+[1] 0.9597770 1.0935781 1.8109000 0.8456602
+```
+
+---
+class: inverse, center, middle
+
+# Shift Scale
+
+---
+
+# Shift Scale
+
+What happens to random variables' mean and variance if we shift their values?  If E(X) = 20 and `\(\sigma_X^2 = 100\)`, what are the mean and variance of
+
+1. `\(X + 7\)`
+2. `\(3X\)`
+
+--
+
+
+```r
+X &lt;- c(0, 10, 20, 30)
+px &lt;- c(0.1, 0.2, 0.3, 0.4)
+EX &lt;- sum(X*px)
+VX &lt;- sum((X - EX)^2*px)
+c(EX, VX)
+```
+
+```
+[1]  20 100
+```
+
+```r
+sum((X + 7)*px)
+```
+
+```
+[1] 27
+```
+
+```r
+sum(((X + 7) - 27)^2*px)
+```
+
+```
+[1] 100
+```
+
+---
+
+# Shift Scale-continued
+
+
+```r
+X &lt;- c(0, 10, 20, 30)
+px &lt;- c(0.1, 0.2, 0.3, 0.4)
+EX &lt;- sum(X*px)
+VX &lt;- sum((X - EX)^2*px)
+c(EX, VX)
+```
+
+```
+[1]  20 100
+```
+
+```r
+sum((3*X)*px)
+```
+
+```
+[1] 60
+```
+
+```r
+sum(((3*X) - 60)^2*px)
+```
+
+```
+[1] 900
+```
+
+
+---
+class: inverse, center, middle
+
+# Independent Random Variables
+
+---
+# For Independent Random Variables:
+
+--
+
+* `\(E(aX + bY) = aE(X) + bE(Y)\)`
+
+--
+
+* `\(E(aX - bY) = aE(X) - bE(Y)\)`
+
+--
+
+* `\(Var(aX \pm bY) = a^2Var(X) + b^2Var(Y)\)`
+
+
+---
+# Example 15.5
+
+If `\(X\)` and `\(Y\)` are independent and `\(E(X) = 5\)`, `\(Var(X) = 9\)`, `\(E(Y) = 8\)`, and `\(Var(Y) = 12\)`, what are:
+
+a. `\(E(4X)\)`
+
+--
+
+20
+
+b. `\(E(2X + 3Y)\)`
+
+--
+
+34
+
+c. `\(Var(5X)\)`
+
+--
+
+225
+
+d. `\(Var(4X - 7Y)\)`
+
+--
+
+
+```r
+4^2*9 + 7^2*12
+```
+
+```
+[1] 732
+```
+
+
+
+---
+class: inverse, center, middle
+
+# Sequence of Indepedent Random Variables
+
+---
+* For  sequence of independent random variables `\({X_1, X_2, \ldots, X_m}\)` with mean `\(\mu\)` and variance `\(\sigma^2\)`, `\(E(X_1+X_2+\cdots+X_m)=m\mu\)` and `\(Var(X_1+X_2+ \cdots +X_m)=m\sigma^2\)` and `\(SD(X_1+X_2+ \cdots +X_m)=\sigma\sqrt{m}\)`.
+
+--
+
+* Use **IndepRV** tab in test two workbook
+
+---
+# Example 15.6 
+
+If `\(E(X) = 25\)` and `\(Var(X)=9\)` and `\(X_1\)` to `\(X_4\)` are independent, what are
+
+a. `\(E(X_1 + X_2 + X_3) =\)` 
+
+--
+
+`\(3 \times 25 = 75\)`
+
+--
+
+b. `\(Var(X_1 + X_2 + X_3 +X_4)\)`
+
+--
+
+`\(4 \times 9 = 36\)`
+
+--
+
+c. `\(SD(X_1 + X_2 +X_3 +X_4)\)`
+
+--
+
+`\(\sqrt{4}\cdot\sqrt{9} = 2\cdot3 = 6 = \sqrt{36}\)`
+
+--
+
+Note that `\(Var(X_1+X_2) \neq Var(2X) = 4Var(X)\)`
+
+---
+# Example 15.7
+
+Bob works at Wal Mart. The mean purchase of his customers is $200 with a standard deviation
+of $50. If Bob checks out 100 customers, what is the probability that he has rung up more than $21,000?
+
+--
+
+`$$E(X_1 + \cdots + X_{100}) = 100 \times 200 = 20000$$`
+
+`$$SD(X_1 + \cdots + X_{100}) = 50 \times \sqrt{100} = 500$$`
+
+`$$P(T \geq 21000) = P\left(z \geq \frac{21000 - 20000}{500}= 2\right) = 0.0227501$$`
+    </textarea>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function() {
+  var d = document, s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})();</script>
+
+<script>
+(function() {
+  var i, text, code, codes = document.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+})();
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
