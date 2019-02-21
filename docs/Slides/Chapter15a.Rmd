@@ -243,4 +243,8 @@ $$E(X_1 + \cdots + X_{100}) = 100 \times 200 = 20000$$
 
 $$SD(X_1 + \cdots + X_{100}) = 50 \times \sqrt{100} = 500$$
 
-$$P(T \geq 21000) = P\left(z \geq \frac{21000 - 20000}{500}= 2\right) = `r pnorm(2, lower = FALSE)`$$
+$$P(T \geq 21000) = P\left(z \geq \frac{21000 - 20000}{500}= 2\right) = `r round(pnorm(2, lower = FALSE),4)`$$
+```{r, echo = FALSE, fig.align = "center", fig.height = 3, fig.width = 5}
+PASWR2::normarea(21000, Inf, 20000, 500)
+```
+
