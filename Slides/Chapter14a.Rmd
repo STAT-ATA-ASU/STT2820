@@ -136,3 +136,47 @@ b. What is the probability of getting five hearts in a row?
 --
 
 $P(\text{five hearts in a row}) = 13/52 \times 12/51 \times 11/50 \times 10/49 \times 9/48 =\\ `r 13/52*12/51*11/50*10/49*9/48`$.
+
+---
+class: inverse, center, middle
+
+# Football
+
+---
+
+A particular football team is know to run 40% of its plays to the left and 60% to the right.  When the play goes to the right, the right tackle shifts his stance 80% of the time, but does so only 105 of the time when the play goes to the left.  As the team set up for the play the right tackle shifts his stance.  What is the probability that the play will go to the right? **DRAW A TREE**
+
+--
+
+$P(L) = 0.40, P(R) = 0.60, P(S|L) = 0.10, P(S^c|L) = 0.904$
+$P(S|R) = 0.80, P(S^c|R) = 0.20$
+
+$$P(R|S) = \frac{P(R\cap S)}{P(S)} = \frac{P(S|R)P(R)}{P(S|L)P(L) + P(S|R)P(R)}\\ = \frac{0.80\times 0.60}{0.10 \times 0.40 + 0.80 \times 0.60} = \frac{12}{13}= `r 12/13`$$
+
+
+---
+class: inverse, center, middle
+
+# Plumber 
+
+---
+
+Plumber Bob does 40% of the plumbing jobs in a small town.  30% of the pople in town are unhappy with their plumbers but 50% of Bob's customers are unhappy with his work.  If your neighbor is not happy with his plumber, what is the probability it was Bob?  **DRAW A TREE**
+
+--
+
+2/3
+
+
+---
+class: inverse, center, middle
+
+# Coins
+
+---
+
+How many times should a coin be tossed so that the probability of at least one head is at least 99%?
+
+--
+
+Extra Credit....you tell me :)
