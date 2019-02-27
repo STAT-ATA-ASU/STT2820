@@ -9,6 +9,7 @@ title: "Welcome"
 * [Chapter 12 Slides](./Slides/Chapter12.html)
 * [Chapter 13 Slides](./Slides/Chapter13.html)
 * [Chapter 14 Slides](./Slides/Chapter14a.html)
+* [Chapter 15 Slides](./Slides/Chapter15a.html)
 
 
 
