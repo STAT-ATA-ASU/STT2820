@@ -10,7 +10,7 @@ title: "Welcome"
 * [Chapter 13 Slides](./Slides/Chapter13.html)
 * [Chapter 14 Slides](./Slides/Chapter14a.html)
 * [Chapter 15 Slides](./Slides/Chapter15a.html)
-* [Chapter 17 Material](https://rstudio.cloud/project/235893)
+* [Chapter 17, 18 & 19 Material](https://rstudio.cloud/project/235893)
 
 
 
