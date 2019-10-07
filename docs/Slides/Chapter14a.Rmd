@@ -144,7 +144,7 @@ class: inverse, center, middle
 
 ---
 
-A particular football team is know to run 40% of its plays to the left and 60% to the right.  When the play goes to the right, the right tackle shifts his stance 80% of the time, but does so only 105 of the time when the play goes to the left.  As the team set up for the play the right tackle shifts his stance.  What is the probability that the play will go to the right? **DRAW A TREE**
+A particular football team is know to run 40% of its plays to the left and 60% to the right.  When the play goes to the right, the right tackle shifts his stance 80% of the time, but does so only 10% of the time when the play goes to the left.  As the team set up for the play the right tackle shifts his stance.  What is the probability that the play will go to the right? **DRAW A TREE**
 
 --
 

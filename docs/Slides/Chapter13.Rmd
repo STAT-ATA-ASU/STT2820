@@ -219,7 +219,7 @@ class: inverse, center, middle
 
 ---
 
-On September, 11, 2002, a particular state lottery's daily number cane up 9-1-1.  Assume that no more than one digit is used to represent the first nine months.  Answer the following:
+On September, 11, 2002, a particular state lottery's daily number came up 9-1-1.  Assume that no more than one digit is used to represent the first nine months.  Answer the following:
 
 *  What is the probability that the winning three numbers match the date on any given day?
 
