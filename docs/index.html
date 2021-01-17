@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 
 <head>
 
 <meta charset="utf-8" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
@@ -25,6 +24,15 @@
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
 <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
 <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css">
@@ -71,6 +79,7 @@ h6 {
 }
 </style>
 
+
 <link rel="stylesheet" href="styles.css" type="text/css" />
 
 
@@ -87,7 +96,6 @@ code {
 }
 img {
   max-width:100%;
-  height: auto;
 }
 .tabbed-pane {
   padding-top: 12px;
@@ -236,6 +244,7 @@ $(document).ready(function () {
   border: none;
   display: inline-block;
   border-radius: 4px;
+  background-color: transparent;
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li {
@@ -288,7 +297,7 @@ $(document).ready(function () {
 </li>
 <li>
   <a href="https://github.com/STAT-ATA-ASU/STT2820/">
-    <span class="fa fa-github fa-lg"></span>
+    <span class="fas fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -324,8 +333,9 @@ $(document).ready(function () {
       <img src="images/asu-logo-white-600.png" style="background-color:black; width:180px; float:left;" width =  /> 
 </p>
         
-        <p><a href="https://arnholtat.youcanbook.me/" data-ycbm-modal="true"><img src="https://youcanbook.me/resources/pics/ycbm-button.png" style="border-style:none;"/></a>
-        </p>
+        <p><strong>Zoom Office Hours</strong> </br>
+      <a href="https://calendar.google.com/calendar/u/0/selfsched?sstoken=UUtZb3I1Z1pFczdjfGRlZmF1bHR8MTZjOTU5MGY0ZTFlOTA2MmExNzhlYWQ5MGIzZWQ0OGM"> Click for Availability</a>  </br>
+</p>
       
         
         <p>
@@ -346,7 +356,7 @@ $(document).ready(function () {
 
 // add bootstrap table styles to pandoc tables
 function bootstrapStylePandocTables() {
-  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
 }
 $(document).ready(function () {
   bootstrapStylePandocTables();
